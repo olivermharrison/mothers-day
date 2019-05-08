@@ -109,6 +109,10 @@ html, body, #app, .page {
     overflow: hidden;
 }
 
+* {
+    user-select: none;
+}
+
 p {
     font-size: 1rem;
     max-width: 40rem;
