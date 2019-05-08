@@ -24,8 +24,9 @@ export default class Amazing extends Vue {
     public adjectives = [
         "AMAZING",
         "THOUGHTFULL",
+        "CARING",
         "CONSIDERATE",
-        "INCREDIBLE"
+        "INCREDIBLE",
     ];
 
     public activeIndex = 0;
