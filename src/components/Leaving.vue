@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>
-
+            <br><br>
             Dear Mom, 
             <br><br>
             This year I thought I'd do something a bit different for Mother's Day, so I built you this.

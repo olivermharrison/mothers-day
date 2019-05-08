@@ -1,27 +1,27 @@
 <template>
     <div id="app">
         <transition  name="fade" mode="out-in">
-            <LandingPage  v-if="activeIndex === 0" v-on:done="increment" class="page"/>
+            <LandingPage  v-if="activeIndex === 0" v-on:done="increment()" class="page"/>
         </transition>
 
         <transition name="bounce">
-            <DearMom    v-if="activeIndex === 1" @click.native="increment" class="page"/>
+            <DearMom    v-if="activeIndex === 1" @click.native="increment()" class="page"/>
         </transition>
 
         <transition name="slideUp">
-            <AboutPage    v-if="activeIndex === 2"  @click.native="increment"  class="page"/>
+            <AboutPage    v-if="activeIndex === 2"  @click.native="increment()"  class="page"/>
         </transition>
 
         <transition name="slideDown">
-            <Amazing    v-if="activeIndex === 3"  v-on:done="increment"  class="page"/>
+            <Amazing    v-if="activeIndex === 3"  v-on:done="increment()"  class="page"/>
         </transition>
 
         <transition name="fadeUp">
-            <ThickThin    v-if="activeIndex === 4"  @click.native="increment" class="page"/>
+            <ThickThin    v-if="activeIndex === 4"  @click.native="increment()" class="page"/>
         </transition>
 
         <transition name="fade">
-            <Love    v-if="activeIndex === 5"  v-on:done="increment"   class="page"/>
+            <Love    v-if="activeIndex === 5"  v-on:done="increment()"   class="page"/>
         </transition>
 
         <transition name="fade">
@@ -32,11 +32,14 @@
             <a href="https://olivermharrison.com/" target="_blank">olivermharrison</a>   
         </footer>
 
-        <div class="controls">
-            <img src="./assets/left-chevron.png" @click="increment(-1)" v-if="activeIndex != 0"/>
-            <img src="./assets/reset.png" @click="increment(activeIndex * -1)" />
-            <img src="./assets/right-chevron.png" @click="increment(1)"/>
-        </div>
+        <transition name="fade">
+            <div class="controls" v-if="activeIndex != 0">
+                <img src="./assets/left-chevron.png" @click="increment(-1)" />
+                <img src="./assets/reset.png" @click="increment(activeIndex * -1)" />
+                <img src="./assets/right-chevron.png" @click="increment(1)"/>
+            </div>
+        </transition>
+        
         
     </div>
 </template>
@@ -102,7 +105,7 @@ export default class App extends Vue {
         top: 0;
         img {
             padding: 1rem;
-            width: 2.5rem;
+            width: 2rem;
             cursor: pointer;
         }
     }
@@ -128,7 +131,7 @@ html, body, #app, .page {
 
 p {
     font-size: 1rem;
-    max-width: 40rem;
+    max-width: 45rem;
     padding: 1rem;
 }
 span {
