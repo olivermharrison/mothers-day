@@ -16,7 +16,7 @@
             <Amazing    v-if="activeIndex === 3"  v-on:done="increment"  class="page"/>
         </transition>
 
-        <transition name="zoomRight">
+        <transition name="fadeUp">
             <ThickThin    v-if="activeIndex === 4"  @click.native="increment" class="page"/>
         </transition>
 
@@ -31,6 +31,12 @@
         <footer>Made with <img src="./assets/heart.png" style="width: 1rem; margin-top:0.5rem"/> by 
             <a href="https://olivermharrison.com/" target="_blank">olivermharrison</a>   
         </footer>
+
+        <div class="controls">
+            <img src="./assets/left-chevron.png" @click="increment(-1)" v-if="activeIndex != 0"/>
+            <img src="./assets/reset.png" @click="increment(activeIndex * -1)" />
+            <img src="./assets/right-chevron.png" @click="increment(1)"/>
+        </div>
         
     </div>
 </template>
@@ -64,7 +70,7 @@ export default class App extends Vue {
 
     public isAnimating = false;
 
-    public increment() {
+    public increment(value: number = 1) {
         if (this.isAnimating) {
             return;
         }
@@ -72,7 +78,7 @@ export default class App extends Vue {
         this.activeIndex = -1;
         this.isAnimating = true;
         setTimeout(() => {
-            this.activeIndex = previousIndex + 1;
+            this.activeIndex = previousIndex + value;
             setTimeout(() => {
                 this.isAnimating = false;
             }, 1000);
@@ -89,6 +95,17 @@ export default class App extends Vue {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+
+    .controls {
+        position: absolute;
+        right: 0;
+        top: 0;
+        img {
+            padding: 1rem;
+            width: 2.5rem;
+            cursor: pointer;
+        }
+    }
 }
 
 .page {
