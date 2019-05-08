@@ -1,8 +1,7 @@
 <template>
     <div id="app">
         <transition  name="fade" mode="out-in">
-            <LandingPage    key="landing"   v-if="activeIndex === 0" v-on:done="increment" class="page"/>
-            
+            <LandingPage  v-if="activeIndex === 0" v-on:done="increment" class="page"/>
         </transition>
 
         <transition name="bounce">
@@ -30,8 +29,7 @@
         </transition>
 
         <footer>Made with <img src="./assets/heart.png" style="width: 1rem; margin-top:0.5rem"/> by 
-            <a href="https://olivermharrison.com/" target="_blank">olivermharrison</a>
-            
+            <a href="https://olivermharrison.com/" target="_blank">olivermharrison</a>   
         </footer>
         
     </div>
@@ -91,8 +89,6 @@ export default class App extends Vue {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-
-    
 }
 
 .page {
@@ -133,7 +129,6 @@ footer {
     right: 0;
     padding: 0.5rem;
 }
-
 
 
 .fade-enter-active, .fade-leave-active {
