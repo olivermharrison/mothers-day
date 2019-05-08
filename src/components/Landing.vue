@@ -1,7 +1,8 @@
 <template>
     <div @click="open()">
         <img src="../assets/envelope.png" class="animated pulse slow" :class="{bounceOut: isOpened, infinite: !isOpened}"/>
-        <p class="animated"  :class="{fadeOut: isOpened}">Tap to open.</p>
+        <br>
+        <span class="animated  "  :class="{fadeOut: isOpened}">Tap to open.</span>
     </div>
 </template>
 
@@ -15,6 +16,7 @@ export default class LandingPage extends Vue {
 
     public open() {
         this.isOpened = true;
+        setTimeout(() => {this.$emit('done')}, 1000);
     }
 }
 </script>
